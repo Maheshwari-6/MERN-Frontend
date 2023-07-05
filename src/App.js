@@ -7,6 +7,7 @@ import './App.css';
 import axios from 'axios';
 import FullQuestion from './components/FullQuestion';
 import EditQuestion from './components/EditQuestion';
+import AskChat from './components/AskChat';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
 					<Route path="/addQuestion" element={<AddQuestion />} />
           <Route path="/question/:id" element={<FullQuestion/>}/>
           <Route path="/question/edit/:id" element={<EditQuestion/>}/>
+					<Route path="/addQuestionChat" element={<AskChat />} />
 				</Routes>
 			</BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const EditQuestionButton = ({ question, userId }) => {
-  // Implement the logic for checking the user and question ownership
+  
 
   if (userId && question.userId._id.toString() === userId.toString()) {
     return (

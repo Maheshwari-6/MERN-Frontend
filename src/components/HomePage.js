@@ -55,6 +55,7 @@ const HomePage = () => {
               <div key={user._id}>
                 <h2>{user.question}</h2>
                 <h3>{user.desc.slice(0, 50)}</h3>
+                <p>Created at: {user.createdAt}</p>
                 <a href={`/question/${user._id}`} >See more...</a>
               </div>
             );

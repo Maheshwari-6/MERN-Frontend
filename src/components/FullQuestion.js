@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import EditQuestionButton from "./EditQuestionButton";
+import DeleteQuestionButton from "./DeleteQuestionButton";
 
 const FullQuestion = () => {
     const { id } = useParams();
@@ -9,7 +10,24 @@ const FullQuestion = () => {
     let userToken = localStorage.getItem("userToken");
     let userName = localStorage.getItem("userName");
     let userId = localStorage.getItem("userId");
-    axios.defaults.headers.common["userToken"] = userToken;    
+    axios.defaults.headers.common["userToken"] = userToken;
+
+  const navigate = useNavigate();
+    
+    const onDelete = (e) => {
+        e.preventDefault();
+        axios
+          .post(`http://localhost:2390/delete-question/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data) {
+              navigate("/");
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }
 
     useEffect(() => {
         axios
@@ -36,6 +54,7 @@ const FullQuestion = () => {
         <h2>Posted by: {question.userId.userName}</h2>
         <h2>{question.formattedDate}</h2>
         <EditQuestionButton question={question} userId={userId}/>
+        <DeleteQuestionButton question={question} userId={userId} onSubmitDelete={onDelete}/>
 
         
         {question.chatGPTReply && <div class="chat-gpt-response">
