@@ -23,6 +23,7 @@ const FullQuestion = () => {
 
   return (
     <div>
+        {userName && <p>Logged user: {userName}</p>}
       <div>
     <a href="/"><button class="btn btn-warning btn-home" id="back-to-home">Home</button></a>
     </div>
@@ -32,7 +33,6 @@ const FullQuestion = () => {
         <h2>{question.desc}</h2>
         <h2>Posted by: {question.userId.userName}</h2>
         <h2>{question.formattedDate}</h2>
-        {userName && <p>Logged user: {userName}</p>}
 
         
         {question.chatGPTReply && <div class="chat-gpt-response">
