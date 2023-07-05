@@ -6,8 +6,10 @@ import AddQuestion from './components/AddQuestion';
 import './App.css';
 import axios from 'axios';
 import FullQuestion from './components/FullQuestion';
+import EditQuestion from './components/EditQuestion';
 
-function App() {
+
+const App = () => {
 
   return (
     <div className="App">
@@ -18,6 +20,7 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/addQuestion" element={<AddQuestion />} />
           <Route path="/question/:id" element={<FullQuestion/>}/>
+          <Route path="/question/edit/:id" element={<EditQuestion/>}/>
 				</Routes>
 			</BrowserRouter>
     </div>

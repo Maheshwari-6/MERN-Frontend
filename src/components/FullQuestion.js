@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import EditQuestionButton from "./EditQuestionButton";
 
 const FullQuestion = () => {
     const { id } = useParams();
     const [question, setQuestion] = useState("");
     let userToken = localStorage.getItem("userToken");
     let userName = localStorage.getItem("userName");
+    let userId = localStorage.getItem("userId");
     axios.defaults.headers.common["userToken"] = userToken;    
 
     useEffect(() => {
@@ -27,12 +29,13 @@ const FullQuestion = () => {
       <div>
     <a href="/"><button class="btn btn-warning btn-home" id="back-to-home">Home</button></a>
     </div>
-
+    
     {question ? (<div>
         <h1>{question.question}</h1>
         <h2>{question.desc}</h2>
         <h2>Posted by: {question.userId.userName}</h2>
         <h2>{question.formattedDate}</h2>
+        <EditQuestionButton question={question} userId={userId}/>
 
         
         {question.chatGPTReply && <div class="chat-gpt-response">
