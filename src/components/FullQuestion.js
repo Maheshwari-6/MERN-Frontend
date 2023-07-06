@@ -75,7 +75,7 @@ const FullQuestion = () => {
 
   return (
     <div>
-      {userName && <p>Logged user: {userName}</p>}
+      
       <div>
         <a href="/">
           <button class="btn btn-warning btn-home" id="back-to-home">
@@ -83,13 +83,15 @@ const FullQuestion = () => {
           </button>
         </a>
       </div>
-
+      {userName && <p className="userName">Hello: {userName}</p>}
       {question ? (
-        <div>
-          <h1>{question.question}</h1>
-          <h2>{question.desc}</h2>
-          <h2>Posted by: {question.userId.userName}</h2>
-          <h2>{question.formattedDate}</h2>
+        <div className="contaner">
+          <h4 className="ques" style={{ fontSize:"20px"}}><strong>Question:</strong>{question.question}</h4>
+
+          <h4 className="ques" style={{ fontSize:"20px" }}><strong>Description:</strong>{question.desc}</h4>
+          
+          <h6>Posted by: {question.userId.userName}</h6>
+          <h6>Date:{question.formattedDate}</h6>
           <EditQuestionButton question={question} userId={userId} />
           <DeleteQuestionButton
             question={question}
@@ -133,9 +135,10 @@ const FullQuestion = () => {
                 <h3>All the comments:</h3>
                 <div class="text">
                   <h3>
-                    <span>{comment.text}</span>
+                    <span style={{fontWeight:'normal'}}>{comment.text }</span>
+
                   </h3>
-                  <p>Added at: {comment.createdAt}</p>
+                  <p id="date">Added at: {comment.createdAt}</p>
                   <p class="des">Posted by: {comment.userId.userName}</p>
                   <DeleteCommentButton comment={comment} question={question} userId={userId} onSubmitDelete={onDeleteComment}/>
                 </div>

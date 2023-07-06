@@ -31,16 +31,20 @@ const HomePage = () => {
     <div className="App">
     
       { userToken && 
-         <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
-        <div>
+         <nav class="bg-dark border-bottom border-bottom-dark navbar navbarhome addquestion" data-bs-theme="dark">
+          <div className="">
+            <div className="logonav">
+            <h3>Welcome To Matrix Master Community</h3>
+            </div>
+            
           <a href="/addQuestion">
-            <button class="btn btn-light" id="gap">Add Question</button>
+            <button class="btn btn-light " id="gap">Add Question</button>
           </a>
           <a href="/addQuestionChat">
             <button class="btn btn-light" id="gap">Add Question Chat</button>
           </a>
           <a>
-          <button onClick={handleLogout} type="button" className="btn btn-primary" id="gap1">Logout</button>
+          <button onClick={handleLogout} type="button" className="btn btn-primary logoutbtn" id="gap1">Logout</button>
           </a>
 
         </div>
@@ -49,20 +53,23 @@ const HomePage = () => {
 
       {!userName ? <a href="/login"><button class="btn btn-warning">Login</button></a> : null }
          
-      {userName && <p>Logged user: {userName}</p>}
+      {userName && <p className="userName">Hello : {userName}</p>}
 
       {questions.length > 0
         ? questions.map((user) => {
             return (
+              <div class="box">
               <div key={user._id} id="star">
                 <h2 class="weight">{user.question}</h2>
                 <h3 class="weight" id="que">{user.desc.slice(0, 50)}</h3>
                 <p>Created at: {user.createdAt}</p>
-                <a href={`/question/${user._id}`} >See more...</a>
+                <a className="seemore" href={`/question/${user._id}`} >See more...</a>
+              </div>
               </div>
             );
           })
         : null}
+        
     </div>
   );
 };

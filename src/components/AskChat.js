@@ -75,11 +75,12 @@ const AskChat = () => {
 
   return (
     <div>
-      {userName && <p>Logged user: {userName}</p>}
+      
 
       <a href="/">
         <button class="btn btn-secondary">Home</button>
       </a>
+      {userName && <p className="userName">Hello: {userName}</p>}
 
       <h2>Add Question</h2>
 
@@ -123,9 +124,9 @@ const AskChat = () => {
 
       {submitted && (
         <div>
-          <h3>Question: {question}</h3>
-          <h3>Desc: {desc}</h3>
-          <h2>ChatGPT answer: {chatGPTReply}</h2>
+          <h3><strong>Question:</strong> {question}</h3>
+          <h3><strong>Description:</strong> {desc}</h3>
+          <h3 style={{fontWeight:"normal", fontSize:"15px"}}><strong>ChatGPT answer:</strong> {chatGPTReply}</h3>
           <button
             type="submit"
             className="btn btn-primary"
