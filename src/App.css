@@ -1,10 +1,39 @@
-.mb-3 {
+.App {
   margin-top: 3%;
   padding-left: 3%;
+  padding-right: 3%;
+  /* background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54581.jpg?w=740&t=st=1688597842~exp=1688598442~hmac=b843ad34a4ccb837797e26cc8cd152263ed83ac5f9107a91c64311354cb90312");
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
 }
 
-#exampleInputUsername, #exampleInputEmail1, #exampleInputPassword1 {
+#exampleInputName, #exampleInputEmail1, #exampleInputPassword1 {
   width: 30%;
 }
+
+#gap {
+  margin-right: 3px;
+  margin-left: 20px;
+}
+
+#gap1 {
+  margin-left: 800px;
+}
   
+#star {
+  border-bottom: 1px darkblue solid;
+}
+
+.weight {
+  font-weight: 350;
+}
  
+#que {
+  color: rgb(229, 37, 20);
+}
+
+#com {
+  color: rgb(182, 73, 143)
+}

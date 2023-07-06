@@ -27,34 +27,40 @@ const HomePage = () => {
         console.log(err);
       });
   }, []);
+
   return (
     <div className="App">
+      
+
+      { userToken && 
+        
+        <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+           <div>
+          <a href="/addQuestion">
+            <button class="btn btn-light" id="gap">Add Question</button>
+          </a>
+          <a href="/addQuestionChat">
+            <button class="btn btn-light" id="gap">Add Question Chat</button>
+          </a>
+          <a>
+          <button onClick={handleLogout} type="button" class="btn btn-primary" id="gap1">Logout</button>
+          </a>
+
+        </div>
+ 
+        </nav>        
+      }
+
       {!userName ? <a href="/login"><button class="btn btn-warning">Login</button></a> : null }
 
       {userName && <p>Logged user: {userName}</p>}
 
-      { userToken && 
-        <div>
-          <a href="/addQuestion">
-            <button class="btn btn-success">Add Question</button>
-          </a>
-          <a href="/addQuestionChat">
-            <button class="btn btn-success">Add Question Chat</button>
-          </a>
-          <a>
-          <button onClick={handleLogout} type="button" className="btn btn-primary">Logout</button>
-          </a>
-
-        </div>
-        
-      }
-
       {questions.length > 0
         ? questions.map((user) => {
             return (
-              <div key={user._id}>
-                <h2>{user.question}</h2>
-                <h3>{user.desc.slice(0, 50)}</h3>
+              <div key={user._id} id="star">
+                <h2 class="weight">{user.question}</h2>
+                <h3 class="weight" id="que">{user.desc.slice(0, 50)}</h3>
                 <a href={`/question/${user._id}`} >See more...</a>
               </div>
             );

@@ -27,12 +27,12 @@ const FullQuestion = () => {
     <div>
         {userName && <p>Logged user: {userName}</p>}
       <div>
-    <a href="/"><button class="btn btn-warning btn-home" id="back-to-home">Home</button></a>
+    <a href="/"><button class="btn btn-secondary" id="back-to-home">Home</button></a>
     </div>
     
     {question ? (<div>
         <h1>{question.question}</h1>
-        <h2>{question.desc}</h2>
+        <h2 id="que">{question.desc}</h2>
         <h2>Posted by: {question.userId.userName}</h2>
         <h2>{question.formattedDate}</h2>
         <EditQuestionButton question={question} userId={userId}/>
@@ -49,7 +49,7 @@ const FullQuestion = () => {
 
         
         <div class="comment-list">
-            <h1>Comments</h1>
+            <h1 id="com">Comments</h1>
             {question.comments.map(comment => (
             <div class="comment-list-container"> 
     
