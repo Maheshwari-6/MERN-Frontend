@@ -60,12 +60,18 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="content">
+      <nav className="nav">
       <a href="/">
-        <button class="btn btn-secondary">Home</button>
+        <button className="btn btn-secondary homebtn">Home</button>
       </a>
-
-      <h2>Welcome to Matrix Master Community</h2>
+    <div className="logo">
+    <p >Welcome to </p>
+      <p>Matrix Master Community</p>
+    </div>
+      
+      </nav>
+      
 
       {signedUp === "true" && <h3>Signed up</h3>}
 
@@ -73,11 +79,11 @@ const Login = () => {
 
       {signupError && <h3>Failed to signup: {signupError}</h3>}
 
-      <div id="log">
-        <div>
+      <div id="log" className="login-signup">
+        <div className="login">
           <h4>Login</h4>
 
-          <form onSubmit={(e) => onSubmitLogin(e)}>
+          <form className="lginform" onSubmit={(e) => onSubmitLogin(e)}>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">
                 Email address
@@ -108,16 +114,16 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary submit">
               Submit
             </button>
           </form>
         </div>
 
-        <div>
+        <div className="signup">
           <h4>Sign Up</h4>
 
-          <form onSubmit={(e) => onSubmitSignup(e)}>
+          <form className="signupform" onSubmit={(e) => onSubmitSignup(e)}>
             <div class="mb-3">
               <label for="exampleInputName" class="form-label">
                 Name
@@ -159,7 +165,7 @@ const Login = () => {
                 onChange={(e) => setSignupPassword(e.target.value)}
               />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary submit">
               Submit
             </button>
           </form>
