@@ -110,6 +110,7 @@ const AskChat = () => {
               rows="3"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
+              
             ></textarea>
           </div>
           <button
@@ -126,7 +127,7 @@ const AskChat = () => {
         <div>
           <h3><strong>Question:</strong> {question}</h3>
           <h3><strong>Description:</strong> {desc}</h3>
-          <h3 style={{fontWeight:"normal", fontSize:"15px"}}><strong>ChatGPT answer:</strong> {chatGPTReply}</h3>
+          <h3 style={{fontWeight:"normal", fontSize:"15px", marginBottom:"25px"}}><strong>ChatGPT answer:</strong> {chatGPTReply}</h3>
           <button
             type="submit"
             className="btn btn-primary"
@@ -136,7 +137,7 @@ const AskChat = () => {
           </button>
           <button
             type="submit"
-            className="btn btn-danger"
+            className="btn btn-danger accept"
             onClick={(e) => createQuestion(e, false)}
           >
             Create without ChatGPT response

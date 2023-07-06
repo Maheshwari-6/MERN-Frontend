@@ -130,3 +130,16 @@ flex-direction: column-reverse;
   padding: 10px;
   background-color:  rgba(245, 164, 98, 0.258);;
 }
+
+
+.errsignup{
+  margin-left: 50%;
+}
+
+.editbtn{
+  margin-bottom: 10px;
+}
+
+.accept {
+  margin-left: 5%;
+}
