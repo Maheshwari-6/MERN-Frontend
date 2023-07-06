@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -18,7 +18,15 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setSignupError("");
-    axios
+    if(!email && !password) {
+      setError('email and password required')
+    } else if(!password) {
+      setError('password required')
+    } 
+    else if(!email) {
+      setError('email required')
+    }else {
+      axios
       .post("http://localhost:2390/login", { email, password })
       .then((res) => {
         if (res.data) {
@@ -32,32 +40,44 @@ const Login = () => {
         setError(err.response.data);
         console.log(err);
       });
+    }
   };
 
   const onSubmitSignup = (e) => {
     e.preventDefault();
     setError("");
     setSignupError("");
-    axios
-      .post("http://localhost:2390/new-account", {
-        userName,
-        email: signupEmail,
-        password: signupPassword,
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          setSignupEmail("");
-          setSignupPassword("");
-          setUserName("");
-          setSignedUp("true");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setSignupError(err.response.data);
-      });
+    if(!signupEmail || !signupPassword || !userName) {
+      setSignupError("Please fill all fields")
+    } else {
+      axios
+        .post("http://localhost:2390/new-account", {
+          userName,
+          email: signupEmail,
+          password: signupPassword,
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data) {
+            setSignupEmail("");
+            setSignupPassword("");
+            setUserName("");
+            setSignedUp("true");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setSignupError(err.response.data);
+        });  
+    }
   };
+
+  useEffect(() => {
+    let userToken = localStorage.getItem("userToken");
+    if (userToken) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
     <div className="content">

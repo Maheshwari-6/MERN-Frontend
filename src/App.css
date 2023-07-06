@@ -68,7 +68,7 @@
   margin: 15px;
 }
 .signup{
-  background-color: rgba(249, 100, 100, 0.927);
+  background-color:  rgba(239, 225, 209, 0.753);
   width: 50%;
   width: 50%;
   margin: 10px;
@@ -92,7 +92,7 @@
   border: none;
   padding: 5px;
   text-align: center;
-  background-color: rgba(245, 164, 98, 0.258);
+  background-color: rgba(239, 225, 209, 0.753);
 }
 .box {
   display: flex;
