@@ -33,6 +33,57 @@
 #que {
   color: rgb(229, 37, 20);
 }
+.nav{
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.logo{
+  display: flex;
+  flex-direction: column;
+  gap: -1px;
+}
+.login-signup{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
 
+}
+.login{
+  background-color: rgba(239, 225, 209, 0.365);
+  width: 50%;
+  margin: 10px;
+  border-radius: 5px;
+}
+.lginform, h4{
+  margin: 15px;
+}
+.signup{
+  background-color: rgba(249, 100, 100, 0.927);
+  width: 50%;
+  width: 50%;
+  margin: 10px;
+  border-radius: 5px;
+}
+.signupform, h4{
+  margin: 15px;
+ 
+}
+.submit{
+  background-color: red;
+  border: none;
+}
+.homebtn{
+  background-color: rgb(234, 149, 38);
+  border: none;
+}
 
  

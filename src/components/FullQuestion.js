@@ -127,9 +127,10 @@ const FullQuestion = () => {
             </div>
           )}
           <div class="comment-list">
-            <h1>Comments</h1>
+            
             {question.comments.map((comment) => (
               <div class="comment-list-container">
+                <h3>All the comments:</h3>
                 <div class="text">
                   <h3>
                     <span>{comment.text}</span>
