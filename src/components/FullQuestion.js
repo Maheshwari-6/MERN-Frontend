@@ -129,10 +129,9 @@ const FullQuestion = () => {
             </div>
           )}
           <div class="comment-list">
-            
+            {question.comments.length > 0 && <h3>All the comments:</h3>}
             {question.comments.map((comment) => (
               <div class="comment-list-container">
-                <h3>All the comments:</h3>
                 <div class="text">
                   <h3>
                     <span style={{fontWeight:'normal'}}>{comment.text }</span>
