@@ -18,7 +18,15 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setSignupError("");
-    axios
+    if(!email && !password) {
+      setError('email and password required')
+    } else if(!password) {
+      setError('password required')
+    } 
+    else if(!email) {
+      setError('email required')
+    }else {
+      axios
       .post("http://localhost:2390/login", { email, password })
       .then((res) => {
         if (res.data) {
@@ -32,6 +40,7 @@ const Login = () => {
         setError(err.response.data);
         console.log(err);
       });
+    }
   };
 
   const onSubmitSignup = (e) => {
