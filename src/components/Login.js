@@ -81,7 +81,7 @@ const Login = () => {
 
   return (
     <div className="content">
-      <nav className="nav">
+      <nav className="navbarhome">
       <a href="/">
         <button className="btn btn-secondary homebtn">Home</button>
       </a>
@@ -97,7 +97,7 @@ const Login = () => {
 
       {error && <h3>Failed to login: {error}</h3>}
 
-      {signupError && <h3>Failed to signup: {signupError}</h3>}
+      {signupError && <h3 className="errsignup">Failed to signup: {signupError}</h3>}
 
       <div id="log" className="login-signup">
         <div className="login">
