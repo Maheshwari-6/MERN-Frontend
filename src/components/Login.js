@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -71,6 +71,13 @@ const Login = () => {
         });  
     }
   };
+
+  useEffect(() => {
+    let userToken = localStorage.getItem("userToken");
+    if (userToken) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
     <div className="content">
