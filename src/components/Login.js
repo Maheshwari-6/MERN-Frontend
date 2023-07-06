@@ -38,25 +38,29 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setSignupError("");
-    axios
-      .post("http://localhost:2390/new-account", {
-        userName,
-        email: signupEmail,
-        password: signupPassword,
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          setSignupEmail("");
-          setSignupPassword("");
-          setUserName("");
-          setSignedUp("true");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setSignupError(err.response.data);
-      });
+    if(!signupEmail || !signupPassword || !userName) {
+      setSignupError("Please fill all fields")
+    } else {
+      axios
+        .post("http://localhost:2390/new-account", {
+          userName,
+          email: signupEmail,
+          password: signupPassword,
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data) {
+            setSignupEmail("");
+            setSignupPassword("");
+            setUserName("");
+            setSignedUp("true");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setSignupError(err.response.data);
+        });  
+    }
   };
 
   return (
