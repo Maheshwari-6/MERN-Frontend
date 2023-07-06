@@ -62,7 +62,8 @@ const HomePage = () => {
               <div key={user._id} id="star">
                 <h2 class="weight">{user.question}</h2>
                 <h3 class="weight" id="que">{user.desc.slice(0, 50)}</h3>
-                <p>Created at: {user.createdAt}</p>
+                <p>Created at: {user.createdAt.slice(0,10)}</p>
+                <p>Created by: {user.userId.userName}</p>
                 <a className="seemore" href={`/question/${user._id}`} >See more...</a>
               </div>
               </div>
